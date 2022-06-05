@@ -14,21 +14,52 @@ class CalculatorType extends AbstractType
     {
         $builder
             ->add('firstNumber', TextType::class, [
-                'required' => true
+                'required' => true,
+                'label' => 'First Number',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
+                'row_attr' => [
+                    'class' => 'form-floating',
+                ],
             ])
             ->add('operand', ChoiceType::class, [
                 'required' => true,
+                'label' => 'Do',
+                'attr' => [
+                    'class' => 'form-select',
+                ],
                 'choices' => [
                     '+' => 'add',
                     '-' => 'subtract',
                     '*' => 'multiply',
                     '/' => 'divide',
                     '%' => 'modulo'
-                ]
+                ],
+                'row_attr' => [
+                    'class' => 'form-floating',
+                ],
             ])
             ->add('secondNumber', TextType::class, [
-                'required' => true
+                'required' => true,
+                'label' => 'Second Number',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
+                'row_attr' => [
+                    'class' => 'form-floating',
+                ],
             ])
-            ->add('Calculate', SubmitType::class);
+            ->add('calculate', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary',
+                ]
+            ]);
     }
 }

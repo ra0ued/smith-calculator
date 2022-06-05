@@ -1,18 +1,42 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    Mr & Mrs Smith Calculator
+{% endblock %}
+
 {% block body %}
     <div id="wrapper">
-        <div id="container">
+        <div id="container" class="container">
             <div id="calculator">
                 <h1>Mr & Mrs Smith Calculator</h1>
 
                 {{ form_start(form) }}
-                {{ form_widget(form) }}
-                {{ form_end(form) }}
+                <div class="row">
+                    <div class="col-auto">
+                        {{ form_row(form.firstNumber) }}
+                    </div>
 
-                {% if result is defined %}
-                    Result = {{ result }}
-                {% endif %}
+                    <div class="col-auto">
+                        {{ form_row(form.operand) }}
+                    </div>
+
+                    <div class="col-auto">
+                        {{ form_row(form.secondNumber) }}
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="form-floating">
+                            {% if result is defined %}
+                                = <b>{{ result }}</b>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        {{ form_row(form.calculate) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
